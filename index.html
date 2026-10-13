@@ -1,689 +1,382 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-        name="description"
-        content="Portfolio of Amrit Amritesh — Product Operations, Project Management, Category Management and Growth."
-    >
-    <title>Amrit Amritesh | Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amrit Amritesh | Category Manager &amp; Growth</title>
+<meta name="description" content="Amrit Amritesh is a Category Manager at Collegedunia who turns search data and user behavior into organic growth and better products.">
 
-    <style>
-        :root {
-            --bg: #0c0d10;
-            --panel: #14161b;
-            --line: #292c33;
-            --text: #f4f2ed;
-            --muted: #a5a8b0;
-            --accent: #d7ff64;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
+  :root {
+    --bg:     #0c1838;
+    --bg-2:   #162550;
+    --ink:    #eaf0ff;
+    --muted:  #93a3cc;
+    --accent:   #ff7a3d;
+    --accent-2: #7fe3d2;
+    --line:   rgba(234, 240, 255, .16);
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --text: "Newsreader", Georgia, serif;
+    --pad: clamp(1.25rem, 5vw, 4rem);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--text); font-size: clamp(1.1rem, 1.05rem + .25vw, 1.3rem);
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 4px; border-radius: 4px; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  .wrap { padding-inline: var(--pad); max-width: 1400px; margin-inline: auto; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+  /* NAV */
+  header.nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem var(--pad);
+    font-family: var(--display); font-weight: 500; font-size: 1rem;
+    mix-blend-mode: difference; color: #fff;
+  }
+  .nav nav { display: flex; gap: 1.5rem; }
+  .nav a { text-decoration: none; }
+  .nav nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font: 16px/1.65 Inter, ui-sans-serif, system-ui,
-                -apple-system, "Segoe UI", Roboto, sans-serif;
-        }
+  /* HERO */
+  .hero {
+    min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
+    padding-block: 7rem 3rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(500px circle at var(--mx, 70%) var(--my, 30%), rgba(255, 122, 61, .30), transparent 70%);
+  }
+  .name {
+    margin: 0; font-family: var(--display);
+    font-size: clamp(3.6rem, 16vw, 18rem);
+    line-height: .86; letter-spacing: -.04em;
+    font-variation-settings: "wght" 300, "wdth" 75;
+    user-select: none;
+  }
+  .name .row { display: block; white-space: nowrap; }
+  .name .ch {
+    display: inline-block;
+    font-variation-settings: "wght" var(--w, 300), "wdth" var(--d, 75);
+    transition: font-variation-settings .15s linear;
+  }
+  .name .row:last-child { color: var(--accent); }
+  .hero-foot {
+    display: flex; flex-wrap: wrap; gap: 1.5rem 4rem;
+    justify-content: space-between; align-items: flex-end; margin-top: 2.5rem;
+  }
+  .intro { max-width: 36ch; font-size: clamp(1.3rem, 1.1rem + 1vw, 1.9rem); line-height: 1.3; margin: 0; }
+  .status {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: var(--display); font-weight: 500; font-size: 1rem;
+    padding: .55rem 1rem; border: 1px solid var(--line); border-radius: 999px;
+  }
+  .status::before {
+    content: ""; width: .6rem; height: .6rem; border-radius: 50%;
+    background: var(--accent-2); box-shadow: 0 0 0 0 rgba(127, 227, 210, .6);
+    animation: ping 2.2s infinite;
+  }
+  @keyframes ping { to { box-shadow: 0 0 0 .8rem rgba(127, 227, 210, 0); } }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+  /* SECTIONS */
+  section { padding-block: clamp(4rem, 10vw, 9rem); }
+  h2 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(2.2rem, 6vw, 5rem); line-height: 1; letter-spacing: -.03em;
+    margin: 0 0 clamp(1rem, 2vw, 1.5rem);
+  }
+  .lede { color: var(--muted); max-width: 60ch; margin: 0 0 clamp(2rem, 5vw, 4rem); }
 
-        a:focus-visible {
-            outline: 2px solid currentColor;
-            outline-offset: 5px;
-        }
+  /* IMPACT LIST */
+  .work-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .work-list .item {
+    display: grid; grid-template-columns: 1fr auto; gap: .5rem 2rem; align-items: center;
+    padding: 1.8rem var(--pad); margin-inline: calc(var(--pad) * -1);
+    border-bottom: 1px solid var(--line);
+    transition: background .25s, color .25s, padding-left .25s;
+  }
+  .work-list .t {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(1.7rem, 4.6vw, 3.6rem); letter-spacing: -.03em; line-height: 1.05;
+  }
+  .work-list .d { grid-column: 1; color: var(--muted); max-width: 58ch; margin: 0; transition: color .25s; }
+  .work-list .m { grid-column: 2; grid-row: 1 / span 2; text-align: right; font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 3.4vw, 2.8rem); letter-spacing: -.03em; line-height: 1; }
+  .work-list .m span { display: block; margin-top: .4rem; font-size: .95rem; font-weight: 500; letter-spacing: 0; color: var(--accent-2); transition: color .25s; }
+  .work-list .item:hover { background: var(--accent); color: var(--bg); padding-left: calc(var(--pad) + 1rem); }
+  .work-list .item:hover .d { color: rgba(12, 24, 56, .8); }
+  .work-list .item:hover .m span { color: var(--bg); }
+  @media (max-width: 640px) {
+    .work-list .item { grid-template-columns: 1fr; }
+    .work-list .m { grid-column: 1; grid-row: auto; text-align: left; margin-top: .6rem; }
+  }
 
-        .wrap {
-            width: min(1080px, 90%);
-            margin: auto;
-        }
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  @media (min-width: 900px) { .about-grid { grid-template-columns: 5fr 4fr; gap: 6rem; } }
+  .about p { margin: 0 0 1.2em; max-width: 60ch; }
+  .about .big { font-size: 1.35em; line-height: 1.4; }
+  .about em { color: var(--accent-2); font-style: italic; }
+  .skills { display: grid; gap: 1.8rem; align-content: start; }
+  .skills h3 { font-family: var(--display); font-weight: 600; font-size: 1.1rem; margin: 0 0 .7rem; color: var(--accent-2); }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0; list-style: none; }
+  .chips li {
+    font-family: var(--display); font-weight: 500; font-size: .95rem;
+    padding: .35rem .85rem; border: 1px solid var(--line); border-radius: 999px; background: var(--bg-2);
+  }
 
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 0;
-            border-bottom: 1px solid var(--line);
-        }
+  /* BACKGROUND (education etc.) */
+  .bg-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 800px) { .bg-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; } }
+  .bg-grid h3 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin: 0 0 1rem; color: var(--accent-2); }
+  .bg-grid dl { margin: 0; }
+  .bg-grid dt { font-family: var(--display); font-weight: 600; }
+  .bg-grid dd { margin: 0 0 1.2rem; color: var(--muted); font-size: .95em; line-height: 1.5; }
 
-        .brand {
-            font-weight: 800;
-            letter-spacing: -0.04em;
-        }
+  /* CONTACT */
+  .contact { background: var(--accent-2); color: var(--bg); }
+  .contact h2 { margin-bottom: 1.5rem; }
+  .mail {
+    display: inline-block; font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.5rem, 5.6vw, 5rem); letter-spacing: -.04em; line-height: 1.1;
+    text-decoration: none; word-break: break-word;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 .08em no-repeat;
+    transition: background-size .35s;
+  }
+  .mail:hover, .mail:focus-visible { background-size: 100% .08em; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-top: 2.5rem; font-family: var(--display); font-weight: 600; align-items: center; }
+  .contact-row a { text-underline-offset: 5px; }
+  .copy, .btn {
+    font: inherit; cursor: pointer; color: var(--bg); background: transparent;
+    border: 2px solid var(--bg); border-radius: 999px; padding: .3rem 1rem; text-decoration: none;
+  }
+  .btn { background: var(--bg); color: var(--accent-2); }
+  .copy:hover { background: var(--bg); color: var(--accent-2); }
+  .btn:hover { background: transparent; color: var(--bg); }
 
-        .brand span {
-            color: var(--accent);
-        }
+  footer { padding: 1.5rem var(--pad); font-family: var(--display); font-size: .95rem; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
 
-        .navlinks {
-            display: flex;
-            gap: 24px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .hero {
-            padding: 100px 0 80px;
-            display: grid;
-            grid-template-columns: 1.5fr 0.8fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            color: var(--accent);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: clamp(44px, 7vw, 82px);
-            line-height: 0.99;
-            letter-spacing: -0.065em;
-            margin: 18px 0 24px;
-        }
-
-        h1 em {
-            font-style: normal;
-            color: var(--accent);
-        }
-
-        .lead {
-            color: #c4c6cc;
-            font-size: 18px;
-            max-width: 650px;
-        }
-
-        .actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 18px;
-            border: 1px solid var(--line);
-            border-radius: 99px;
-            font-weight: 650;
-            font-size: 14px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        .btn.primary {
-            background: var(--accent);
-            color: #111;
-            border-color: var(--accent);
-        }
-
-        .profile {
-            border: 1px solid var(--line);
-            background: linear-gradient(145deg, #1b1e24, #101115);
-            border-radius: 24px;
-            min-height: 300px;
-            padding: 26px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .monogram {
-            font-size: 100px;
-            line-height: 1;
-            font-weight: 800;
-            letter-spacing: -0.1em;
-            color: var(--accent);
-        }
-
-        .profile small {
-            color: var(--muted);
-        }
-
-        section {
-            padding: 64px 0;
-            border-top: 1px solid var(--line);
-        }
-
-        .sectionhead {
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            align-items: end;
-            margin-bottom: 28px;
-        }
-
-        h2 {
-            font-size: clamp(30px, 4vw, 44px);
-            letter-spacing: -0.05em;
-            line-height: 1.1;
-            margin: 8px 0;
-        }
-
-        .sectionhead p {
-            max-width: 440px;
-            color: var(--muted);
-            margin: 0;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .stat,
-        .card {
-            border: 1px solid var(--line);
-            background: var(--panel);
-            border-radius: 18px;
-            padding: 23px;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 35px;
-            letter-spacing: -0.05em;
-            color: var(--accent);
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-
-        .card h3 {
-            margin: 10px 0 8px;
-            font-size: 21px;
-            letter-spacing: -0.03em;
-        }
-
-        .card p,
-        .card li {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .tag {
-            display: inline-block;
-            color: var(--accent);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.13em;
-            font-weight: 750;
-        }
-
-        .card ul {
-            padding-left: 18px;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skills span {
-            padding: 10px 14px;
-            border: 1px solid var(--line);
-            border-radius: 99px;
-            color: #d5d6db;
-            font-size: 14px;
-        }
-
-        .contact {
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            align-items: center;
-            background: var(--accent);
-            color: #111;
-            border-radius: 24px;
-            padding: 35px;
-        }
-
-        .contact p {
-            margin: 8px 0 0;
-            color: #343a25;
-        }
-
-        .contact .eyebrow {
-            color: #343a25;
-        }
-
-        .contact .actions {
-            margin-top: 0;
-            flex-shrink: 0;
-            flex-direction: column;
-        }
-
-        .contact .btn {
-            border-color: #111;
-            text-align: center;
-        }
-
-        .note {
-            color: var(--muted);
-            font-size: 12px;
-            margin-top: 12px;
-        }
-
-        .note a {
-            text-decoration: underline;
-            overflow-wrap: anywhere;
-        }
-
-        .footer {
-            padding: 28px 0;
-            color: var(--muted);
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-        }
-
-        @media (max-width: 720px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 65px 0 55px;
-                gap: 25px;
-            }
-
-            .profile {
-                min-height: 210px;
-            }
-
-            .monogram {
-                font-size: 76px;
-            }
-
-            .navlinks {
-                gap: 12px;
-            }
-
-            .navlinks a:nth-child(2) {
-                display: none;
-            }
-
-            .stats,
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .sectionhead {
-                display: block;
-            }
-
-            .sectionhead p {
-                margin-top: 12px;
-            }
-
-            .contact {
-                display: block;
-            }
-
-            .contact .actions {
-                margin-top: 20px;
-                flex-direction: row;
-            }
-
-            .footer {
-                display: block;
-            }
-
-            .footer span {
-                display: block;
-                margin-top: 6px;
-            }
-        }
-    </style>
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .status::before { animation: none; }
+    .name .ch, .work-list .item, .mail { transition: none; }
+  }
+</style>
 </head>
 
 <body>
-    <div class="wrap">
-        <nav class="nav" aria-label="Main navigation">
-            <a class="brand" href="#top">AMRIT<span>.</span></a>
 
-            <div class="navlinks">
-                <a href="#about">About</a>
-                <a href="#work">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+<header class="nav">
+  <a href="#top" aria-label="Back to top">AA</a>
+  <nav aria-label="Main">
+    <a href="#impact">Impact</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-        <main id="top">
-            <div class="hero">
-                <div>
-                    <div class="eyebrow">
-                        Product · Projects · Growth
-                    </div>
+<main id="top">
 
-                    <h1>
-                        Amrit<br>
-                        Amritesh<span>.</span><br>
-                        <em>Build. Improve. Scale.</em>
-                    </h1>
-
-                    <p class="lead">
-                        Category Manager at Collegedunia with 2.5+ years
-                        of experience turning content, SEO, operations
-                        and cross-functional execution into measurable
-                        business outcomes.
-                    </p>
-
-                    <div class="actions">
-                        <a class="btn primary" href="#work">
-                            Explore my work ↘
-                        </a>
-
-                        <a
-                            class="btn"
-                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=dinkum2509%40gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Get in touch ↗
-                        </a>
-
-                        <a class="btn" href="tel:+919931004225">
-                            Call +91 9931004225 ↗
-                        </a>
-
-                        <a
-                            class="btn"
-                            href="./Amrit_Amritesh_Resume.pdf"
-                            download="Amrit_Amritesh_Resume.pdf"
-                        >
-                            Download Resume ↓
-                        </a>
-                    </div>
-                </div>
-
-                <aside class="profile">
-                    <div class="eyebrow">Portfolio / 2026</div>
-                    <div class="monogram">AA.</div>
-
-                    <div>
-                        <strong>Category Manager</strong><br>
-                        <small>
-                            Product Operations · Project Execution ·
-                            Organic Growth
-                        </small>
-                    </div>
-                </aside>
-            </div>
-
-            <section id="about">
-                <div class="sectionhead">
-                    <div>
-                        <div class="eyebrow">01 / About</div>
-                        <h2>Strategy meets execution.</h2>
-                    </div>
-
-                    <p>
-                        I work across teams, clients and content-led
-                        products to improve performance, keep delivery
-                        on track and connect day-to-day operations
-                        with business goals.
-                    </p>
-                </div>
-
-                <div class="stats">
-                    <div class="stat">
-                        <strong>100%+</strong>
-                        <span>Year-over-year organic traffic growth</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>10,000+</strong>
-                        <span>Coaching pages covered by SEO strategy</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>5,000+</strong>
-                        <span>Organic leads generated in under a month</span>
-                    </div>
-                </div>
-            </section>
-
-            <section id="work">
-                <div class="sectionhead">
-                    <div>
-                        <div class="eyebrow">02 / Experience</div>
-                        <h2>Selected impact.</h2>
-                    </div>
-
-                    <p>
-                        Experience spanning content-led product
-                        verticals, stakeholder management and a
-                        high-volume outreach project.
-                    </p>
-                </div>
-
-                <div class="cards">
-                    <article class="card">
-                        <span class="tag">
-                            SEO &amp; Growth · Collegedunia
-                        </span>
-
-                        <h3>Institute Vertical</h3>
-
-                        <p>
-                            Led content and SEO execution across a
-                            large coaching discovery ecosystem.
-                        </p>
-
-                        <ul>
-                            <li>
-                                Redesigned SEO and keyword architecture
-                                across 10,000+ coaching pages.
-                            </li>
-                            <li>
-                                Helped drive 100%+ year-over-year
-                                organic traffic growth.
-                            </li>
-                            <li>
-                                Managed 250+ SEO-focused articles and
-                                a team of 15+ writers.
-                            </li>
-                            <li>
-                                Coordinated with 150+ study-abroad
-                                and coaching clients.
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag">
-                            Quality &amp; Operations · Collegedunia
-                        </span>
-
-                        <h3>Review Vertical</h3>
-
-                        <p>
-                            Supported trust and quality across
-                            user-generated review content.
-                        </p>
-
-                        <ul>
-                            <li>
-                                Managed and audited reviews for accuracy
-                                and quality before publication.
-                            </li>
-                            <li>
-                                Helped maintain reliable content
-                                workflows and publishing standards.
-                            </li>
-                            <li>
-                                Worked across operational processes to
-                                support a consistent user experience.
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag">
-                            Project Execution · Collegedunia
-                        </span>
-
-                        <h3>Campus Ambassador Project</h3>
-
-                        <p>
-                            Coordinated an outreach initiative focused
-                            on college engagement and lead generation.
-                        </p>
-
-                        <ul>
-                            <li>
-                                Managed a 5-member outreach team reaching
-                                students across 400+ colleges.
-                            </li>
-                            <li>
-                                Collected placement data from 250 colleges.
-                            </li>
-                            <li>
-                                Generated 5,000+ organic leads in
-                                less than one month.
-                            </li>
-                            <li>
-                                Kept execution aligned with the
-                                allocated budget.
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag">How I work</span>
-
-                        <h3>From plan to delivery</h3>
-
-                        <p>
-                            I bring structure to ambiguous work and
-                            keep teams focused on outcomes.
-                        </p>
-
-                        <ul>
-                            <li>
-                                Break goals into actionable plans
-                                and milestones.
-                            </li>
-                            <li>
-                                Coordinate stakeholders, clients
-                                and cross-functional teams.
-                            </li>
-                            <li>
-                                Monitor quality, timelines and
-                                performance metrics.
-                            </li>
-                            <li>
-                                Use data and experimentation to
-                                identify opportunities.
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-            </section>
-
-            <section id="skills">
-                <div class="sectionhead">
-                    <div>
-                        <div class="eyebrow">03 / Toolkit</div>
-                        <h2>Core strengths.</h2>
-                    </div>
-
-                    <p>
-                        Transferable skills for Product Operations,
-                        Associate Product Manager, Project Management,
-                        Category Management and Growth roles.
-                    </p>
-                </div>
-
-                <div class="skills">
-                    <span>Project Execution</span>
-                    <span>Product Operations</span>
-                    <span>SEO Strategy</span>
-                    <span>Organic Growth</span>
-                    <span>Lead Generation</span>
-                    <span>Content Operations</span>
-                    <span>Stakeholder Management</span>
-                    <span>Client Coordination</span>
-                    <span>Team Leadership</span>
-                    <span>Performance Analysis</span>
-                    <span>Process Improvement</span>
-                    <span>Quality Assurance</span>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="contact">
-                    <div>
-                        <div class="eyebrow">04 / Contact</div>
-                        <h2>Let’s build something meaningful.</h2>
-
-                        <p>
-                            Open to opportunities across product,
-                            project operations and growth.
-                        </p>
-                    </div>
-
-                    <div class="actions">
-                        <a
-                            class="btn"
-                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=dinkum2509%40gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Email me ↗
-                        </a>
-
-                        <a class="btn" href="tel:+919931004225">
-                            +91 9931004225 ↗
-                        </a>
-                    </div>
-                </div>
-
-                <p class="note">
-                    Email:
-                    <a href="mailto:dinkum2509@gmail.com">
-                        dinkum2509@gmail.com
-                    </a>
-                    · Download my resume using the button above.
-                </p>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <strong>Amrit Amritesh</strong>
-            <span>
-                Designed for clarity, ownership and measurable impact.
-            </span>
-        </footer>
+  <section class="hero" id="hero">
+    <div class="wrap" style="width:100%">
+      <h1 class="name" aria-label="Amrit Amritesh">
+        <span class="row" data-split aria-hidden="true">Amrit</span>
+        <span class="row" data-split aria-hidden="true">Amritesh</span>
+      </h1>
+      <div class="hero-foot">
+        <p class="intro">Category Manager at Collegedunia. I turn search data and user behavior into organic growth and better products.</p>
+        <span class="status">Open to product and growth roles</span>
+      </div>
     </div>
+  </section>
+
+  <section id="impact">
+    <div class="wrap">
+      <h2>What I've delivered</h2>
+      <p class="lede">Since April 2024 at Collegedunia, I've owned initiatives across two product verticals, working with product, SEO, content, design and business teams.</p>
+      <ul class="work-list">
+        <li class="item">
+          <span class="t">Institute category</span>
+          <span class="m">100%<span>YoY organic traffic growth</span></span>
+          <p class="d">Managed 10,000+ coaching institutes. Used user behavior, search trends, competitor insights and performance data to improve information architecture, keyword strategy, CMS workflows and content discoverability.</p>
+        </li>
+        <li class="item">
+          <span class="t">College Ambassador Program</span>
+          <span class="m">5,000+<span>organic leads in one month</span></span>
+          <p class="d">Led a 5-member outreach team across 400+ colleges and engaged 50,000+ students, which lifted traffic and engagement on college pages.</p>
+        </li>
+        <li class="item">
+          <span class="t">Student review platform</span>
+          <span class="m">Trust<span>credibility and engagement</span></span>
+          <p class="d">Owned user-generated feedback, institute profiles and quality processes. Looked for ways to make reviews more credible and the content experience better for students.</p>
+        </li>
+        <li class="item">
+          <span class="t">Content team leadership</span>
+          <span class="m">15<span>content professionals led</span></span>
+          <p class="d">Managed performance, workflows, quality standards, AI-assisted processes and resource allocation, while improving how efficiently the team delivers.</p>
+        </li>
+        <li class="item">
+          <span class="t">Stakeholder management</span>
+          <span class="m">100+<span>client and partner relationships</span></span>
+          <p class="d">Ran requirement gathering, prioritization, feedback collection, issue resolution and on-time delivery across internal and external teams.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>About me</h2>
+        <p class="big">I have 2.5+ years of experience in product execution, user engagement and <em>data-driven growth</em>.</p>
+        <p>I find user and business opportunities, turn requirements into clear initiatives, and fix the processes that slow teams down. I'm comfortable in SQL, Google Analytics, Google Search Console and CMS tools, and I work closely with product, content, design and SEO teams.</p>
+        <p>I hold a B.Tech in Information Technology, so I speak the language of engineers as well as marketers. Outside work I sing Hindi songs, cook Indian food and play badminton. I'm also a former e-sports player.</p>
+      </div>
+
+      <div class="skills">
+        <div>
+          <h3>Product management</h3>
+          <ul class="chips"><li>Product execution</li><li>Product strategy</li><li>Project management</li><li>User engagement</li><li>Requirement gathering</li><li>Process optimization</li></ul>
+        </div>
+        <div>
+          <h3>Analytics and research</h3>
+          <ul class="chips"><li>SQL</li><li>Google Analytics</li><li>Search Console</li><li>Advanced Excel</li><li>Data analysis</li><li>User insights</li><li>Competitor research</li></ul>
+        </div>
+        <div>
+          <h3>Leadership</h3>
+          <ul class="chips"><li>Team leadership</li><li>Cross-functional collaboration</li><li>Client management</li><li>Problem solving</li></ul>
+        </div>
+        <div>
+          <h3>Growth and technology</h3>
+          <ul class="chips"><li>SEO strategy</li><li>Content strategy</li><li>CMS</li><li>Lead generation</li><li>Organic growth</li><li>Claude</li><li>ChatGPT</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="background" style="padding-top:0">
+    <div class="wrap">
+      <h2>Background</h2>
+      <div class="bg-grid" style="margin-top:2rem">
+        <div>
+          <h3>Education</h3>
+          <dl>
+            <dt>B.Tech, Information Technology</dt>
+            <dd>Sikkim Manipal Institute of Technology, 2019 to 2023. CGPA 7.8/10</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Experience</h3>
+          <dl>
+            <dt>Category Manager, Collegedunia</dt>
+            <dd>December 2025 to present</dd>
+            <dt>Digital Content Analyst (Founder staff), Collegedunia</dt>
+            <dd>April 2024 to December 2025</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Positions of responsibility</h3>
+          <dl>
+            <dt>Floor Warden, SMIT</dt>
+            <dd>Aug 2021 to Jan 2023. Managed student discipline, records, residential coordination and communication with institute administration.</dd>
+            <dt>Volunteer, Kaalrav Institute Fest</dt>
+            <dd>Oct 2019 to Oct 2022. Supported event coordination, operational planning, student management and safety.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Let's talk</h2>
+      <a class="mail" id="email" href="mailto:dinkum2509@gmail.com">dinkum2509@gmail.com</a>
+      <div class="contact-row">
+        <button class="copy" id="copy" type="button">Copy email</button>
+        <a href="tel:+919931004225">+91 99310 04225</a>
+        <!-- Paste your real LinkedIn and Collegedunia profile URLs below -->
+        <a href="https://https://www.linkedin.com/in/amrit-amritesh-a78b82234" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://collegedunia.com/author/1614-amrit-amritesh" target="_blank" rel="noopener">Collegedunia profile</a>
+        <a class="btn" href="Amrit_Amritesh_Resume.pdf" download>Download resume</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>&copy; <span id="year"></span> Amrit Amritesh</span>
+  <span>Built with HTML, CSS and a little JavaScript</span>
+</footer>
+
+<script>
+  const chars = [];
+  document.querySelectorAll('[data-split]').forEach(row => {
+    const text = row.textContent;
+    row.textContent = '';
+    [...text].forEach(c => {
+      const s = document.createElement('span');
+      s.className = 'ch';
+      s.textContent = c;
+      row.appendChild(s);
+      chars.push(s);
+    });
+  });
+
+  const hero = document.getElementById('hero');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rest = () => chars.forEach(el => { el.style.setProperty('--w', 300); el.style.setProperty('--d', 75); });
+
+  function react(x, y) {
+    const radius = Math.max(220, innerWidth * 0.22);
+    chars.forEach(el => {
+      const r = el.getBoundingClientRect();
+      const t = Math.max(0, 1 - Math.hypot(x - (r.left + r.width / 2), y - (r.top + r.height / 2)) / radius);
+      el.style.setProperty('--w', Math.round(300 + t * 500));
+      el.style.setProperty('--d', Math.round(75 + t * 25));
+    });
+  }
+
+  if (!reduce) {
+    hero.addEventListener('pointermove', e => {
+      react(e.clientX, e.clientY);
+      hero.style.setProperty('--mx', e.clientX + 'px');
+      hero.style.setProperty('--my', (e.clientY - hero.getBoundingClientRect().top) + 'px');
+    });
+    hero.addEventListener('pointerleave', rest);
+
+    const start = performance.now();
+    (function wave(now) {
+      const p = (now - start) / 1600;
+      if (p > 1.6) { rest(); return; }
+      chars.forEach((el, i) => {
+        const t = Math.max(0, Math.sin((p - i * 0.07) * Math.PI));
+        el.style.setProperty('--w', Math.round(300 + t * 500));
+        el.style.setProperty('--d', Math.round(75 + t * 25));
+      });
+      requestAnimationFrame(wave);
+    })(start);
+  } else {
+    chars.forEach(el => { el.style.setProperty('--w', 600); el.style.setProperty('--d', 90); });
+  }
+
+  const copyBtn = document.getElementById('copy');
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(document.getElementById('email').textContent.trim());
+      copyBtn.textContent = 'Copied';
+    } catch { copyBtn.textContent = 'Select the address and copy'; }
+    setTimeout(() => (copyBtn.textContent = 'Copy email'), 2000);
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
